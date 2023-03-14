@@ -7,6 +7,7 @@ import TableView from "@/pages/employees/tableView";
 import GridView from "@/pages/employees/gridView";
 import { retrieveEmployee } from "@/slices/employeeSlice";
 import Link from "next/link";
+import { object } from "prop-types";
 
 
 function ListView() {
