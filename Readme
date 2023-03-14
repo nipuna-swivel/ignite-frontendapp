@@ -1,0 +1,22 @@
+##How to clone and run the front-end application
+=================================================
+set the folder that will be used.
+set the path that will be used in terminal.
+
+*enter following command and clone the front-end application.
+git clone https://github.com/nipuna-swivel/ignite-frontendapp.git
+
+*install node modules 
+npm install
+
+*create .env file and add following code and save.
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
+##then charge directly in to the front-end application
+
+cd ignitefe
+
+*run the application 
+===============================
+npm run dev  
+
