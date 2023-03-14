@@ -46,17 +46,17 @@ function TableView(props: { employee: any }) {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{props.employees.employees.map((emp) => (
+						{props.employees?.employees.map((emp) => (
 							<TableRow hover key={emp.id}>
 								<TableCell>
-									<img src={emp.photoUrl} alt={"employee image"} />
+									<img src={emp?.photoUrl} alt={"employee image"} />
 								</TableCell>
-								<TableCell> {emp.fname} </TableCell>
-								<TableCell> {emp.lname} </TableCell>
-								<TableCell> {emp.email}</TableCell>
-								<TableCell> {emp.contactNum}</TableCell>
+								<TableCell> {emp?.fname} </TableCell>
+								<TableCell> {emp?.lname} </TableCell>
+								<TableCell> {emp?.email}</TableCell>
+								<TableCell> {emp?.contactNum}</TableCell>
 
-								{emp.gender === "M" ? (
+								{emp?.gender === "M" ? (
 									<TableCell> Male</TableCell>
 								) : (
 									<TableCell> Feale</TableCell>

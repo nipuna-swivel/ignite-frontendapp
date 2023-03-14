@@ -43,23 +43,23 @@ function GridView ( props: { employee: any } )
 			<Fragment>
 				<Box sx={ { flexGrow: 1 } }>
 					<Grid container spacing={ { lg: 6 } } columns={ { lg: 12 } }>
-						{ props.employees.employees.map( ( emp ) => (
-							<Grid item lg={ 4 } key={ emp._id }>
+						{ props.employees?.employees.map( ( emp ) => (
+							<Grid item lg={ 4 } key={ emp?._id }>
 								<Card sx={ { maxWidth: 345 } }>
 									<CardMedia
 										component="img"
-										alt={ emp.fname }
+										alt={ emp?.fname }
 										height="200"
-										image={ emp.photoUrl }
+										image={ emp?.photoUrl }
 									/>
 									<CardContent>
 										<Typography gutterBottom variant="h5">
-											{ emp.fname } { emp.lname }
+											{ emp?.fname } { emp?.lname }
 										</Typography>
 										<Typography variant="body2" color="text.secondary">
-											<li>Email: { emp.email }</li>
-											<li>Phone: { emp.contactNum }</li>
-											{ emp.gender === "M" ? (
+											<li>Email: { emp?.email }</li>
+											<li>Phone: { emp?.contactNum }</li>
+											{ emp?.gender === "M" ? (
 												<li>Gender : Male</li>
 											) : (
 												<li>Gender :Female</li>
@@ -67,12 +67,12 @@ function GridView ( props: { employee: any } )
 										</Typography>
 									</CardContent>
 									<CardActions>
-										<Link href={ `/employees/edit/${ emp._id }` }>
+										<Link href={ `/employees/edit/${ emp?._id }` }>
 											<IconButton>
 												<EditIcon color="primary" />
 											</IconButton>
 										</Link>
-										<IconButton onClick={ () => handleDelete( emp._id ) }>
+										<IconButton onClick={ () => handleDelete( emp?._id ) }>
 											<DeleteIcon color="primary" />
 										</IconButton>
 									</CardActions>
