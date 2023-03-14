@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export default axios.create({
- // baseURL: "http://localhost:3000",
-  baseURL: "https://ignite-backend.herokuapp.com",
+
+ baseURL: process.env.NEXT_PUBLIC_API_URL,
+ 
   headers: {
     "Content-type": "application/json",
     
