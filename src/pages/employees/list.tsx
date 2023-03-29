@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, IconButton } from "@mui/material";
-import ViewModuleIcon from "@mui/icons-material/ViewModule";
-import ViewListIcon from "@mui/icons-material/ViewList";
+import { IconButton } from "@mui/material";
 import TableView from "@/pages/employees/tableView";
 import GridView from "@/pages/employees/gridView";
 import { retrieveEmployee } from "@/slices/employeeSlice";
 import Link from "next/link";
-import { object } from "prop-types";
+import AddButton from "@/components/AddButton";
+import TableButton from "@/components/TableButton";
+import GridButton from "@/components/GridButton";
 
 
 function ListView() {
@@ -34,11 +34,12 @@ function ListView() {
 				<div className="float-xl-end mt-5 mb-2">
 					{" "}
 					<Link href="/employees/addEmployee">
-						<Button variant="contained">Add Employee</Button>
+						
+						<AddButton/>
 					</Link>
 					<IconButton onClick={handleClick}>
 						{/* this is for changing Table view and grid view.*/}
-						{toggle !== true ? <ViewModuleIcon /> : <ViewListIcon />}
+						{toggle !== true ? <TableButton /> : <GridButton />}
 					</IconButton>
 				</div>
 				<div>

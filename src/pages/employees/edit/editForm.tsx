@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import employeeSchema from "@/utils/employeeShema";
 import { IEditEmployeeFormProps } from "@/types";
-import AlertMessage from "@/shared/alertMessage";
+import EmployeeListButton from "@/components/EmployeeListButton";
 //employee form functional component start.
 const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 	employeedetails,
@@ -48,16 +48,12 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 	//start return statement.
 	return (
 		<>
-			
 			<div className="d-flex justify-content-end">
 				<Link href="/employees/list">
-					<Button className="mt-2 mb-2 btn-lg" variant="contained">
-						List View
-					</Button>
+					<EmployeeListButton />
 				</Link>
 			</div>
 			<div className=" card w-100 p-3">
-			
 				<div className=" d-flex justify-content-center m-5">
 					<form className="w-100 p-3" onSubmit={formik.handleSubmit}>
 						<div className="col-md-4">
@@ -163,8 +159,7 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 								name="gender"
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.gender}
-							>
+								value={formik.values.gender}>
 								{options.map((option) => (
 									<option key={option.value} value={option.value}>
 										{option.label}
