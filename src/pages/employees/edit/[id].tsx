@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import EditEmployeeForm from "@/pages/employees/edit/editForm";
+import EditEmployeeForm from "@/components/EmployeeForm";
 import { useDispatch, useSelector } from "react-redux";
 import EmployeeDataService from "@/services/employeeService";
 import { findEmployeeById } from "@/slices/employeeSlice";
 import AlertService from "@/services/alertService";
 
-function editEmployee() {
+const editEmployee=()=> {
 	const router = useRouter();
 	const { query } = useRouter();
 	console.log("id", query.id);

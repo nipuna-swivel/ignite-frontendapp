@@ -1,3 +1,12 @@
+*Employees Manager application - Frontend application
+==============================================
+
+#this is a application that used to create to handle basic CRUD operations,in employee managment.
+#this is the frontend code for the employee manager application which is created using Nextjs( React and Redux).
+backend api calls are created using Nestjs. both backend and frontend created using typescript file format.
+
+
+
 ##How to clone and run the front-end application
 =================================================
 set the folder that will be used.
