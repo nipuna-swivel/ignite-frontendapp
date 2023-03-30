@@ -9,9 +9,9 @@ import AlertService from "@/services/alertService";
 const editEmployee=()=> {
 	const router = useRouter();
 	const { query } = useRouter();
-	console.log("id", query.id);
+	console.log("id :", query.id);
 	let empId = query.id;
-	console.log("emp by id", empId);
+	console.log("emp by id :", empId);
 
 	const employee = useSelector((state) => state.employees.employee);
 	const dispatch = useDispatch();
@@ -21,22 +21,22 @@ const editEmployee=()=> {
 	};
 
 	useEffect(() => {
-		console.log(empId);
+		console.log("Employee ID :",empId);
 		initFetch();
 	}, [empId]);
 
-	console.log("redux store value", employee);
+	console.log("redux store value :", employee);
 	
 
 	const updateEmployee = async (data) => {
-		console.log("pulled data from edit form", data);
+		console.log("pulled data from edit form :", data);
 
 		try {
 			await EmployeeDataService.update(empId, data);
 			router.reload();
 			AlertService.success("Success!!", "success");
 		} catch (error) {
-			console.log("error creating employee", error);
+			console.log("error creating employee :", error);
 		}
 	};
 

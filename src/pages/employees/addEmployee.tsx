@@ -13,7 +13,7 @@ function addEmployee() {
 		contactNum: string;
 		gender: string;
 	}) => {
-		console.log("pulled data", data);
+		console.log("pulled data :", data);
 
 		try {
 			await EmployeeDataService.create({
@@ -27,7 +27,7 @@ function addEmployee() {
 			AlertService.success("Succesfully deleted !!", "success");
 			router.push("/");
 		} catch (error) {
-			console.log("error creating employee", error);
+			console.log("error creating employee :", error);
 			AlertService.error("Success!!", "error");
 		}
 	};
