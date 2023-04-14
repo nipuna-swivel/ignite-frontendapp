@@ -4,9 +4,11 @@ import { Button } from "@mui/material";
 const Buttonx = (props: any) => {
 	return (
 		<>
-			<Button variant="contained">{props.title}</Button>
+			<Button className={props.class} variant={props.variant}>
+				{props.title}
+			</Button>
 		</>
 	);
 };
-
+//Buttonx.propTypes = {};
 export default Buttonx;

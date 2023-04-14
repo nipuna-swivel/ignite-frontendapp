@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import employeeSchema from "@/utils/employeeShema";
 import { IEditEmployeeFormProps } from "@/types";
-import EmployeeListButton from "@/components/EmployeeListButton";
+import Button from "@/components/atoms/button";
 //employee form functional component start.
 const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 	employeedetails,
@@ -49,7 +49,11 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 		<>
 			<div className="d-flex justify-content-end">
 				<Link href="/employees/list">
-					<EmployeeListButton />
+					<Button
+						class={"mt-2 mb-2 btn-lg"}
+						title={"List View"}
+						variant={"contained"}
+					/>
 				</Link>
 			</div>
 			<div className=" card w-100 p-3">
