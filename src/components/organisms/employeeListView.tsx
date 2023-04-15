@@ -16,7 +16,7 @@ import EmployeeDataService from "@/services/employeeService";
 import AlertService from "@/services/alertService";
 import { useRouter } from "next/router";
 //start of TableView Component.
-function TableView(props: { employee: any }) {
+function TableView(employee: any ) {
 	const router = useRouter();
 	const handleDelete = async (id: string) => {
 		try {
@@ -46,7 +46,7 @@ function TableView(props: { employee: any }) {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{props.employees?.employees.map((emp) => (
+						{employee.employees?.employees.map((emp) => (
 							<TableRow hover key={emp.id}>
 								<TableCell>
 									<img src={emp?.photoUrl} alt={"employee image"} />
