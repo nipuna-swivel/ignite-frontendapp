@@ -12,8 +12,9 @@ import {
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-const TableList = (employeData: any, handleDelete: Function) => {
-    console.log("object:",employeData)
+const TableList = (employeeData: any, handleDelete: Function) => {
+	console.log("employeData:", employeeData);
+
 	return (
 		<div>
 			<TableContainer component={Paper}>
@@ -30,7 +31,7 @@ const TableList = (employeData: any, handleDelete: Function) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{employeData?.employees?.employees.map((emp: any) => (
+						{employeeData?.employeeData?.employees.map((emp: any) => (
 							<TableRow hover key={emp.id}>
 								<TableCell>
 									<img src={emp?.photoUrl} alt={"employee image"} />
