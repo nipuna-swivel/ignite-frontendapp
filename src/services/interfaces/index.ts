@@ -13,3 +13,17 @@ export interface IEditEmployeeFormProps {
     employeedetails: IEmployee | null;
     func: (values: IEmployee) => void
 }
+
+export interface ApiResponseInterface {
+    msg: string
+    code: number
+    data: any
+    error: any
+    success: boolean
+}
+
+
+export interface ErrorResponseInterface {
+    msg: string,
+    validation : any,
+}
