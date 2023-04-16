@@ -13,8 +13,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import EmployeeDataService from "@/services/employeeService";
 import AlertService from "@/services/alertService";
-import EditIconButton from "@/components/EditIconButton";
-import DeleteIconButton from "@/components/DeleteIconButton";
+import EditIconButton from "@/components/atoms/EditIconButton";
+import DeleteIconButton from "@/components/atoms/DeleteIconButton";
 
 function GridView(props: { employee: any }) {
 	const router = useRouter();
