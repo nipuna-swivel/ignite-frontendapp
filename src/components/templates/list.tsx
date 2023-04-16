@@ -5,8 +5,8 @@ import TableView from "@/components/organisms/employeeListView";
 import GridView from "@/components/organisms/employeeGridView";
 import { retrieveEmployee } from "@/slices/employeeSlice";
 import Link from "next/link";
-import TableButton from "@/components/TableButton";
-import GridButton from "@/components/GridButton";
+import TableButton from "@/components/atoms/TableButton";
+import GridButton from "@/components/atoms/GridButton";
 import Button from "@/components/atoms/button";
 
 function ListView ()
