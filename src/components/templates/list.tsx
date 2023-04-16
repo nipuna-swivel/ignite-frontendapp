@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IconButton } from "@mui/material";
 import TableView from "@/components/organisms/employeeListView";
 import GridView from "@/components/organisms/employeeGridView";
-import { retrieveEmployee } from "@/slices/employeeSlice";
+import { retrieveEmployee } from "@/services/redux/employee/action";
 import Link from "next/link";
 import TableButton from "@/components/atoms/TableButton";
 import GridButton from "@/components/atoms/GridButton";

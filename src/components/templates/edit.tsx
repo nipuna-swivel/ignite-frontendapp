@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import EditEmployeeForm from "@/components/organisms/employeeForm";
 import { useDispatch, useSelector } from "react-redux";
 import EmployeeDataService from "@/services/employeeService";
-import { findEmployeeById } from "@/slices/employeeSlice";
+import { findEmployeeById } from "@/services/redux/employee/action";
 import AlertService from "@/services/alertService";
 
-const editEmployee=()=> {
+const EditEmployee=()=> {
 	const router = useRouter();
 	const { query } = useRouter();
 	console.log("id :", query.id);
@@ -47,4 +47,4 @@ const editEmployee=()=> {
 	);
 }
 
-export default editEmployee;
+export default EditEmployee;

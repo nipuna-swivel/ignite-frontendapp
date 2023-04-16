@@ -3,7 +3,7 @@ import { IEmployee } from "../../../services/interfaces";
 import { deleteMethod, get, post, put } from "../../utils/fetch-wrapper";
 
 export const retrieveEmployee = createAsyncThunk(
-	"/employees",
+	'employees/get-all',
 	async (
 		{
 			params,
@@ -11,7 +11,7 @@ export const retrieveEmployee = createAsyncThunk(
 			params?:
 				| string
 				| string[][]
-				| Record<string, string>
+				| Record<string, string >
 				| URLSearchParams
 				| undefined;
 		},
@@ -33,7 +33,7 @@ export const retrieveEmployee = createAsyncThunk(
 // Get One   ==========================================================================================
 
 export const findEmployeeById = createAsyncThunk(
-	"/employees",
+	'employees/get-one',
 	async ({ id }: { id: string | string[] }, { rejectWithValue }) => {
 		try {
 			const response = await get(`employees/${id}`);
@@ -52,7 +52,7 @@ export const findEmployeeById = createAsyncThunk(
 
 // Create   ==========================================================================================
 export const createEmployee = createAsyncThunk(
-	"/employees",
+	'employees/create',
 	async ({ data }: { data: any }, { rejectWithValue }) => {
 		try {
 			const response = await post(`/employees`, data);

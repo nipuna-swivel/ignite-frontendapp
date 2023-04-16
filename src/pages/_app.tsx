@@ -5,7 +5,7 @@ import AppLayout from "@/layouts/appLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import store from "@/store";
+import store from "@/services/redux/store";
 import AlertMessage from "@/shared/alertMessage";
 
 export default function App ( { Component, pageProps }: AppProps )

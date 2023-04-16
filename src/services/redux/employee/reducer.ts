@@ -49,7 +49,7 @@ export const employeeReducer = createReducer(initialState, (builder) => {
 		.addCase(retrieveEmployee.rejected, (state, error) => {
 			state.status = ResponseStatus.ERROR;
 			let myError = error.payload as ApiResponseInterface;
-			state.error = myError.error;
+			state.error = myError?.error;
 			state.key = "view-all";
 		});
 	//===================================================================
