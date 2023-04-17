@@ -3,3 +3,4 @@ describe('employee manager app spec', () => {
     cy.visit('/')
   })
 })
+
