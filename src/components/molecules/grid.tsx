@@ -17,7 +17,7 @@ function GridX({employeeData, handleDelete}) {
 	console.log("Grid passed data: ", employeeData);
 	return (
 		<div>
-			<Fragment>
+			
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={{ lg: 6 }} columns={{ lg: 12 }}>
 						{employeeData?.employees.map((emp) => (
@@ -56,7 +56,7 @@ function GridX({employeeData, handleDelete}) {
 						))}
 					</Grid>
 				</Box>
-			</Fragment>
+			
 		</div>
 	);
 };

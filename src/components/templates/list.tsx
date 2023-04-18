@@ -9,47 +9,42 @@ import TableButton from "@/components/atoms/TableButton";
 import GridButton from "@/components/atoms/GridButton";
 import Button from "@/components/atoms/button";
 
-function ListView ()
-{
-	const [ toggle, setToggle ] = useState( true ); //this is used for maintaing the icon button.(Table and GridView).
-	const handleClick = () =>
-	{
-		setToggle( !toggle );
+function ListView() {
+	const [toggle, setToggle] = useState(true); //this is used for maintaing the icon button.(Table and GridView).
+	const handleClick = () => {
+		setToggle(!toggle);
 	};
 
-	const employees = useSelector( ( state ) => state.employees );
+	const employees = useSelector((state) => state.employees);
 	const dispatch = useDispatch();
 
-	const initFetch = useCallback( () =>
-	{
-		return dispatch( retrieveEmployee() );
-	}, [ dispatch ] );
+	const initFetch = useCallback(() => {
+		return dispatch(retrieveEmployee());
+	}, [dispatch]);
 
-	useEffect( () =>
-	{
+	useEffect(() => {
 		initFetch();
-	}, [ initFetch ] );
+	}, [initFetch]);
 
 	return (
 		<div>
-			<div className="container">
-				<div className="float-xl-end mt-5 mb-2">
-					{ " " }
+			<div className="container 	bg-white">
+				<div className="float-xl-end mt-5 mb-2 bg-white">
+					{" "}
 					<Link href="/employees/addEmployee">
-
-						<Button title={ "Add" } variant={ "contained" } />
+						<Button title={"Add"} variant={"contained"} />
 					</Link>
-					<IconButton onClick={ handleClick }>
-						{/* this is for changing Table view and grid view.*/ }
-						{ toggle !== true ? <TableButton /> : <GridButton /> }
+					<IconButton onClick={handleClick}>
+						{/* this is for changing Table view and grid view.*/}
+						{toggle !== true ? <TableButton /> : <GridButton />}
 					</IconButton>
 				</div>
 				<div>
-					{ toggle !== true ? (
-						<TableView employees={ employees } />
+					{toggle !== true ? (
+						<TableView employees={employees} />
 					) : (
-						<GridView employees={ employees } />
-					) }
+						<GridView employees={employees} />
+					)}
 				</div>
 			</div>
 		</div>

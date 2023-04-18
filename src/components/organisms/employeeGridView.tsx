@@ -20,10 +20,10 @@ function GridView(props) {
 	};
 
 	return (
-		<div className="">
-			<Fragment>
+		<div className="bg-white">
+			
 				<GridX employeeData={props.employees} handleDelete={handleDelete} />
-			</Fragment>
+			
 		</div>
 	);
 } //end of gridview

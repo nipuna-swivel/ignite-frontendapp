@@ -19,7 +19,7 @@ function TableView(employees: any) {
 	};
 	//start of return statement.
 	return (
-		<div className="mt-2">
+		<div className="mt-2 bg-white">
 			{" "}
 			<TableForm
 				employeeData={employees.employees}

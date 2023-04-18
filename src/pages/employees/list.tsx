@@ -3,7 +3,7 @@ import List from "@/components/templates/list";
 
 function ListView() {
 	return (
-		<div>
+		<div className="bg-white">
 			<List />
 		</div>
 	);

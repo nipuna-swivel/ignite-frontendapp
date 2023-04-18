@@ -5,7 +5,7 @@ export default function AppLayout(props: any) {
 	return (
 		<>
 			<Header />
-			<div className="container" >{props.children}</div>
+			<div className="container bg-white" >{props.children}</div>
 		</>
 	);
 }
