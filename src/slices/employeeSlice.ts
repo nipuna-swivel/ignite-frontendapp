@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import EmployeeDataService from "@/services/employeeService";
+import AlertService from "@/services/alertService";
 
 const initialState = {
 	employees: [],
@@ -9,44 +10,74 @@ const initialState = {
 export const createEmployee = createAsyncThunk(
 	"employees",
 	async ({ fname, lname, email, contactNum, gender, photoUrl }) => {
-		const res = await EmployeeDataService.create({
-			fname,
-			lname,
-			email,
-			contactNum,
-			gender,
-			photoUrl,
-		});
-		return res.data;
+		try {
+			const res = await EmployeeDataService.create({
+				fname,
+				lname,
+				email,
+				contactNum,
+				gender,
+				photoUrl,
+			});
+			AlertService.success("Success!!", "success");
+			return res.data;
+
+		} catch (error) {
+			console.log("there is an error in create api call", error);
+			AlertService.success("there is an error in create api call!!", "error");
+		}
 	}
 );
 
 export const retrieveEmployee = createAsyncThunk("employees", async () => {
-	const res = await EmployeeDataService.getAll();
-	return res.data;
+	try {
+		const res = await EmployeeDataService.getAll();
+		return res.data;
+	} catch (error) {
+		console.log("there is an error in retrieve api call", error);
+		AlertService.success("there is an error in retrieve api call!!", "error");
+	}
 });
 
 export const updateEmployee = createAsyncThunk(
 	"employees/update",
 	async ({ id, data }) => {
-		const res = await EmployeeDataService.update(id, data);
+		try {
+			const res = await EmployeeDataService.update(id, data);
 		return res.data;
+		} catch (error) {
+			console.log("there is an error in update api call", error)
+			AlertService.success("there is an error in update api call!!", "error");
+		}
+		
 	}
 );
 
 export const deleteEmployee = createAsyncThunk(
 	"employees/delete",
 	async ({ id }) => {
-		await EmployeeDataService.remove(id);
+		try {
+			await EmployeeDataService.remove(id);
 		return { id };
+		} catch (error) {
+			console.log("there is an error in delete api call", error)
+			AlertService.success("there is an error in create api call!!", "error");
+		}
+		
 	}
 );
 
 export const findEmployeeById = createAsyncThunk(
 	"employees/getbyid",
 	async (id) => {
-		const res = await EmployeeDataService.findById(id);
+		try {
+			const res = await EmployeeDataService.findById(id);
 		return res.data;
+		} catch (error) {
+			console.log("there is an error in findbyID api call",error)
+			AlertService.success("there is an error in findbyID api call!!", "error");
+		}
+		
 	}
 );
 
