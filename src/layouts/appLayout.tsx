@@ -1,11 +1,12 @@
 import * as React from "react";
-import Header from "@/layouts/header";
+import HeaderBar from "@/layouts/HeaderBar";
 
-export default function AppLayout(props: any) {
+const AppLayout=(props: any)=> {
 	return (
 		<>
-			<Header />
+			<HeaderBar />
 			<div className="container bg-white" >{props.children}</div>
 		</>
 	);
 }
+export default AppLayout

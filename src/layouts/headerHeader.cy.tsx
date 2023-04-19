@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from './header'
+import HeaderBar from './HeaderBar'
 
 describe('<Header />', () => {
   it('renders', () => {
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<Header />)
+    cy.mount(<HeaderBar />)
   })
 })
