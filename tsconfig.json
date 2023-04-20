@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-   
+    "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/__tests__/index.test.jsx", "src/_test_/index.test.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/__tests__/index.test.jsx", "src/_test_/index.test.js", "babel.config.js"],
   "exclude": ["node_modules"]
 }

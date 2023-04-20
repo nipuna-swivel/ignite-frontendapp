@@ -64,3 +64,15 @@ const customJestConfig = {
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 module.exports = createJestConfig(customJestConfig)
 
+import type {Config} from 'jest';
+import {defaults} from 'jest-config';
+
+const config: Config = {
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'mts'],
+};
+
+module.exports = {
+  "testEnvironment": "jsdom"
+}
+
+export default config;
