@@ -1,7 +1,7 @@
 import * as React from "react";
-import HeaderBar from "@/layouts/HeaderBar";
+import HeaderBar from "./HeaderBar";
 
-const AppLayout=(props: any)=> {
+const AppLayout=(props)=> {
 	return (
 		<>
 			<HeaderBar />
