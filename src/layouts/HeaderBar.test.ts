@@ -9,10 +9,11 @@ describe("HeaderBar", () => {
 		const textElement = screen.getByText("Employee Manager");
 		expect(textElement).toBeInTheDocument();
 	});
+
+	test("Header Bar",()=>{
+		render(<HeaderBar/>)
+		const textElement = screen.getByText("Employee Manager");
+		expect(textElement).toBeInTheDocument();
+	});
 });
 
-test("Header Bar",()=>{
-	render(<HeaderBar/>)
-	const textElement = screen.getByText("Employee Manager");
-	expect(textElement).toBeInTheDocument();
-})

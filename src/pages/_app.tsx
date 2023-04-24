@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/globals.css";
 import ReactDOM from 'react-dom'
 import type { AppProps } from "next/app";
 import AppLayout from "@/layouts/appLayout";
@@ -8,7 +9,7 @@ import { Provider } from "react-redux";
 import store from "@/store";
 import AlertMessage from "@/shared/alertMessage";
 
-export default function App ( { Component, pageProps }: AppProps )
+const  App= ( { Component, pageProps }: AppProps )=>
 {
   return (
     <AppLayout>
@@ -19,3 +20,4 @@ export default function App ( { Component, pageProps }: AppProps )
     </AppLayout>
   );
 }
+export default App;
