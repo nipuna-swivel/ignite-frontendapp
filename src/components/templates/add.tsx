@@ -1,10 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
-import EmployeeForm from "@/components/organisms/employeeForm";
-import EmployeeDataService from "@/services/employeeService";
-import AlertService from "@/services/alertService";
+import EmployeeForm from "../organisms/employeeForm";
+import EmployeeDataService from "../../services/employeeService";
+import AlertService from "../../services/alertService";
 
-function addEmployee() {
+function AddEmployee() {
 	const router = useRouter();
 	const saveEmployee = async (data: {
 		fname: string;
@@ -38,4 +38,4 @@ function addEmployee() {
 	);
 }
 
-export default addEmployee;
+export default AddEmployee;

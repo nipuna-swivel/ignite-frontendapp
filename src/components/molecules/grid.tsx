@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
 	Box,
 	Card,
@@ -9,8 +9,8 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import EditIconButton from "@/components/atoms/EditIconButton";
-import DeleteIconButton from "@/components/atoms/DeleteIconButton";
+import EditIconButton from "../atoms/EditIconButton";
+import DeleteIconButton from "../atoms/DeleteIconButton";
 import Link from "next/link";
 
 function GridX({employeeData, handleDelete}) {

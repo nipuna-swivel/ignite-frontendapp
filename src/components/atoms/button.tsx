@@ -10,5 +10,4 @@ const Buttonx = (props: any) => {
 		</>
 	);
 };
-//Buttonx.propTypes = {};
 export default Buttonx;

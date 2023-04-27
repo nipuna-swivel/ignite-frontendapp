@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useRouter } from "next/router";
-import EmployeeDataService from "@/services/employeeService";
-import AlertService from "@/services/alertService";
-import GridX from "@/components/molecules/grid";
+import EmployeeDataService from "../../services/employeeService";
+import AlertService from "../../services/alertService";
+import GridX from "../molecules/grid";
 
 function GridView(props) {
 	const router = useRouter();
-	const [open, setOpen] = React.useState(false);
+	
 	console.log("grid component passed data1", props);
 	const handleDelete = async (id: string) => {
 		try {

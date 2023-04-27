@@ -1,15 +1,15 @@
-import React, { useEffect, useState, FC } from "react";
+import React, { useEffect,FC } from "react";
 import Link from "next/link";
 import { useFormik } from "formik";
-import employeeSchema from "@/utils/employeeShema";
-import { IEditEmployeeFormProps } from "@/services/interfaces";
-import Button from "@/components/atoms/button";
+import employeeSchema from "../../utils/employeeShema";
+import { IEditEmployeeFormProps } from "../../services/interfaces";
+import Button from "../atoms/button";
 //employee form functional component start.
 const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 	employeedetails,
 	func,
 }) => {
-	let data = employeedetails;
+
 	console.log("passed data", employeedetails);
 
 	// selection options for gender selection.

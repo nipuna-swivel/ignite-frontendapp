@@ -1,7 +1,8 @@
 import * as yup from "yup";
     //regular expression for validating phone number.
-	const phoneRegExp = /^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$/gm;
+	const phoneRegExp = /['0][\d]{2}[\d]{7}/;
 	//validation schema for employee attributes.
+	
 	const employeeSchema = yup.object().shape({
 		fname: yup
 			.string()

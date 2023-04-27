@@ -1,11 +1,7 @@
 import Head from "next/head";
-// import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
-import ListView from "@/pages/employees/list";
-// const inter = Inter( { subsets: [ "latin" ] } );
+import ListView from "../pages/employees/list";
 
-export default function Home ()
-{
+export default function Home() {
 	return (
 		<>
 			<Head>

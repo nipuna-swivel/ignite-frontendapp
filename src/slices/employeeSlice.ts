@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import EmployeeDataService from "@/services/employeeService";
-import AlertService from "@/services/alertService";
+import EmployeeDataService from "../services/employeeService";
+import AlertService from "../services/alertService";
 
 const initialState = {
 	employees: [],

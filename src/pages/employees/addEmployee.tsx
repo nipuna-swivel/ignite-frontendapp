@@ -1,5 +1,5 @@
 import React from "react";
-import AddEmployee from "@/components/templates/add";
+import AddEmployee from "../../components/templates/add";
 
 function addEmployee() {
 	return (

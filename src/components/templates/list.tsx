@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IconButton } from "@mui/material";
-import TableView from "@/components/organisms/employeeListView";
-import GridView from "@/components/organisms/employeeGridView";
-import { retrieveEmployee } from "@/slices/employeeSlice";
+import TableView from "../organisms/employeeListView";
+import GridView from "../organisms/employeeGridView";
+import { retrieveEmployee } from "../../slices/employeeSlice";
 import Link from "next/link";
-import TableButton from "@/components/atoms/TableButton";
-import GridButton from "@/components/atoms/GridButton";
-import Button from "@/components/atoms/button";
+import TableButton from "../atoms/TableButton";
+import GridButton from "../atoms/GridButton";
+import Button from "../atoms/button";
 
 function ListView() {
 	const [toggle, setToggle] = useState(true); //this is used for maintaing the icon button.(Table and GridView).

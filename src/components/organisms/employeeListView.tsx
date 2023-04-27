@@ -1,8 +1,8 @@
 import React from "react";
-import EmployeeDataService from "@/services/employeeService";
-import AlertService from "@/services/alertService";
+import EmployeeDataService from "../../services/employeeService";
+import AlertService from "../../services/alertService";
 import { useRouter } from "next/router";
-import TableForm from "@/components/molecules/table";
+import TableForm from "../molecules/table";
 //start of TableView Component.
 function TableView(employees: any) {
 	console.log("EmployeeListComponent", employees.employees);

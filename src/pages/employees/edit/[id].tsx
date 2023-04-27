@@ -1,5 +1,5 @@
 import React from "react";
-import Edit from "@/components/templates/edit";
+import Edit from "../../../components/templates/edit";
 
 function EditEmployee() {
 	return (
