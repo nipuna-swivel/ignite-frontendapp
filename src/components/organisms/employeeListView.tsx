@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import TableForm from "../molecules/table";
 import { deleteEmployee } from "@/slices/employeeSlice";
 import { useDispatch } from "react-redux";
+import { IEmployee } from "@/services/interfaces";
+
 //start of TableView Component.
-function TableView(employees: any) {
+function TableView(employees: IEmployee ) {
 
 	console.log("EmployeeListComponent data", employees.employees);
 

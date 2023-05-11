@@ -27,24 +27,24 @@ function onAlert(id = defaultId) {
 }
 
 // convenience methods
-function success(message, options) {
+function success(message: any, options: any) {
 	alert({ ...options, type: AlertType.Success, message });
 }
 
-function error(message, options) {
+function error(message: any, options: any) {
 	alert({ ...options, type: AlertType.Error, message });
 }
 
-function info(message, options) {
+function info(message: any, options: any) {
 	alert({ ...options, type: AlertType.Info, message });
 }
 
-function warn(message, options) {
+function warn(message: any, options: any) {
 	alert({ ...options, type: AlertType.Warning, message });
 }
 
 // core alert method
-function alert(alert) {
+function alert(alert: any) {
 	alert.id = alert.id || defaultId;
 	alert.autoClose = alert.autoClose === undefined ? true : alert.autoClose;
 	alertSubject.next(alert);

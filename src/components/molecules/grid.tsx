@@ -20,7 +20,7 @@ function GridX({employeeData, handleDelete}) {
 			
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={{ lg: 6 }} columns={{ lg: 12 }}>
-						{employeeData?.employees.map((emp) => (
+						{employeeData?.employees.map((emp:string) => (
 							<Grid item lg={4} key={emp?._id}>
 								<Card sx={{ maxWidth: 345 }}>
 									<CardMedia

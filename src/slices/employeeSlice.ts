@@ -69,7 +69,7 @@ export const deleteEmployee = createAsyncThunk(
 
 export const findEmployeeById = createAsyncThunk(
 	"employees/getbyid",
-	async (id) => {
+	async (id:string) => {
 		try {
 			const res = await EmployeeDataService.findById(id);
 			return res.data;
