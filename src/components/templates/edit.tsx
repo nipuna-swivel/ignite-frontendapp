@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import EditEmployeeForm from "../organisms/employeeForm";
 import { useDispatch, useSelector } from "react-redux";
-import EmployeeDataService from "../../services/employeeService";
 import { findEmployeeById } from "../../slices/employeeSlice";
-import AlertService from "../../services/alertService";
+import { updateEmployee } from "@/slices/employeeSlice";
 
-const EditEmployee=()=> {
+const EditEmployee = () => {
 	const router = useRouter();
 	const { query } = useRouter();
 	console.log("id :", query.id);
@@ -21,20 +20,16 @@ const EditEmployee=()=> {
 	};
 
 	useEffect(() => {
-		console.log("Employee ID :",empId);
+		console.log("Employee ID :", empId);
 		initFetch();
 	}, [empId]);
 
 	console.log("redux store value :", employee);
-	
 
-	const updateEmployee = async (data) => {
-		console.log("pulled data from edit form :", data);
-
+	const updateEmploye = (data: any) => {
 		try {
-			await EmployeeDataService.update(empId, data);
-			router.reload();
-			AlertService.success("Success!!", "success");
+			dispatch(updateEmployee({ empId, data }));
+			//router.reload();
 		} catch (error) {
 			console.log("error creating employee :", error);
 		}
@@ -42,9 +37,9 @@ const EditEmployee=()=> {
 
 	return (
 		<div>
-			<EditEmployeeForm employeedetails={employee} func={updateEmployee} />
+			<EditEmployeeForm employeedetails={employee} func={updateEmploye} />
 		</div>
 	);
-}
+};
 
 export default EditEmployee;

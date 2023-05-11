@@ -1,20 +1,22 @@
 import React from "react";
-import EmployeeDataService from "../../services/employeeService";
-import AlertService from "../../services/alertService";
 import { useRouter } from "next/router";
 import TableForm from "../molecules/table";
+import { deleteEmployee } from "@/slices/employeeSlice";
+import { useDispatch } from "react-redux";
 //start of TableView Component.
 function TableView(employees: any) {
-	console.log("EmployeeListComponent", employees.employees);
+
+	console.log("EmployeeListComponent data", employees.employees);
+
 	const router = useRouter();
-	const handleDelete = async (id: string) => {
+	const dispatch = useDispatch();
+
+	const handleDelete = (id: string) => {
 		try {
-			await EmployeeDataService.remove(id);
+			dispatch(deleteEmployee(id));
 			router.reload();
-			AlertService.success("Succesfully deleted !!", "success");
 		} catch (error) {
-			console.log("error deleting employee", error);
-			AlertService.error("Success!!", "error");
+			console.log("error in deleting employee", error);
 		}
 	};
 	//start of return statement.

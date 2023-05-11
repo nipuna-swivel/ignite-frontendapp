@@ -1,29 +1,29 @@
 import React from "react";
 import { useRouter } from "next/router";
-import EmployeeDataService from "../../services/employeeService";
-import AlertService from "../../services/alertService";
 import GridX from "../molecules/grid";
+import { deleteEmployee } from "@/slices/employeeSlice";
+import { useDispatch } from "react-redux";
+import { IEmployee } from "@/services/interfaces";
 
-function GridView(props) {
+function GridView(props: { employees: IEmployee }) {
 	const router = useRouter();
-	
-	console.log("grid component passed data1", props);
-	const handleDelete = async (id: string) => {
+	const dispatch = useDispatch();
+
+	console.log("grid component passed data", props);
+
+	const handleDelete = (id: string) => {
 		try {
-			await EmployeeDataService.remove(id);
+			dispatch(deleteEmployee(id));
 			router.reload();
-			AlertService.success("Succesfully deleted !!", "success");
 		} catch (error) {
-			console.log("error deleting employee", error);
-			AlertService.error("Success!!", "error");
+			console.log("error in deleting employee", error);
 		}
+		
 	};
 
 	return (
 		<div className="bg-white">
-			
-				<GridX employeeData={props.employees} handleDelete={handleDelete} />
-			
+			<GridX employeeData={props.employees} handleDelete={handleDelete} />
 		</div>
 	);
 } //end of gridview
