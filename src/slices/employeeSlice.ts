@@ -13,7 +13,7 @@ export const createEmployee = createAsyncThunk(
 	"employees",
 	async ({ fname, lname, email, contactNum, gender, photoUrl }: IEmployee) => {
 		try {
-			const res = await EmployeeDataService.create({
+			 await EmployeeDataService.create({
 				fname,
 				lname,
 				email,

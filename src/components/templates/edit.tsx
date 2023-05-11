@@ -6,7 +6,7 @@ import { findEmployeeById } from "../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";
 
 const EditEmployee = () => {
-	const router = useRouter();
+	
 	const { query } = useRouter();
 	console.log("id :", query.id);
 	let empId = query.id;
@@ -29,7 +29,7 @@ const EditEmployee = () => {
 	const updateEmploye = (data: any) => {
 		try {
 			dispatch(updateEmployee({ empId, data }));
-			//router.reload();
+			
 		} catch (error) {
 			console.log("error creating employee :", error);
 		}
