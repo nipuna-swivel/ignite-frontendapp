@@ -2,5 +2,5 @@ projectKey=employee-manager-frontend-Nipuna
 serverUrl=https://sonarqube.swiveltech.lk
 serverVersion=9.9.0.65466
 dashboardUrl=https://sonarqube.swiveltech.lk/dashboard?id=employee-manager-frontend-Nipuna
-ceTaskId=AYfBjBsFc4fNtMjDabfP
-ceTaskUrl=https://sonarqube.swiveltech.lk/api/ce/task?id=AYfBjBsFc4fNtMjDabfP
+ceTaskId=AYgKMZiTc4fNtMjDabii
+ceTaskUrl=https://sonarqube.swiveltech.lk/api/ce/task?id=AYgKMZiTc4fNtMjDabii
