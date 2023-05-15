@@ -1,12 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import EmployeeForm from "../organisms/employeeForm";
-import { useDispatch } from "react-redux";
+import { useAppDispatch} from "@/components/hooks";
 import { createEmployee } from "@/slices/employeeSlice";
 
 function AddEmployee() {
 	const router = useRouter();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const saveEmployee = (data: {
 		fname: string;
 		lname: string;

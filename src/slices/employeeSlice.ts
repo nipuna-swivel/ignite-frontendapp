@@ -12,7 +12,7 @@ const initialState: IEmployeeState = {
 	//message: '',
 };
 
-export const createEmployee = createAsyncThunk(
+export const createEmployee:any = createAsyncThunk(
 	"employees/create",
 	async (
 		{ fname, lname, email, contactNum, gender, photoUrl }: IEmployee,
@@ -34,7 +34,7 @@ export const createEmployee = createAsyncThunk(
 	}
 );
 
-export const retrieveEmployee = createAsyncThunk(
+export const retrieveEmployee:any = createAsyncThunk(
 	"employees/getAll",
 	async () => {
 		try {
@@ -47,7 +47,7 @@ export const retrieveEmployee = createAsyncThunk(
 	}
 );
 
-export const updateEmployee = createAsyncThunk(
+export const updateEmployee:any = createAsyncThunk(
 	"employees/update",
 	async (params: { empId: string; data: any }, { rejectWithValue }) => {
 		try {
@@ -60,7 +60,7 @@ export const updateEmployee = createAsyncThunk(
 	}
 );
 
-export const deleteEmployee = createAsyncThunk(
+export const deleteEmployee:any = createAsyncThunk(
 	"employees/delete",
 	async (id: string, { rejectWithValue }) => {
 		try {
@@ -73,7 +73,7 @@ export const deleteEmployee = createAsyncThunk(
 	}
 );
 
-export const findEmployeeById = createAsyncThunk(
+export const findEmployeeById:any = createAsyncThunk(
 	"employees/getbyid",
 	async (id: string, { rejectWithValue }) => {
 		try {

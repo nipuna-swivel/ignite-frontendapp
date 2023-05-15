@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { IconButton } from "@mui/material";
 import TableView from "../organisms/employeeListView";
 import GridView from "../organisms/employeeGridView";
@@ -15,8 +15,8 @@ function ListView() {
 		setToggle(!toggle);
 	};
 
-	const employees = useSelector((state) => state.employees);
-	const dispatch = useDispatch();
+	const employees = useAppSelector((state) => state.employees);
+	const dispatch = useAppDispatch();
 
 	const initFetch = useCallback(() => {
 		return dispatch(retrieveEmployee());

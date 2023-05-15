@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import EditEmployeeForm from "../organisms/employeeForm";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { findEmployeeById } from "../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";
 
 const EditEmployee = () => {
 	const { query } = useRouter();
-	let empId = query.id;
+	let empId = query.id as string;
 
-	const employee = useSelector((state:any) => state.employees.employee);
-	const dispatch = useDispatch();
+	const employee = useAppSelector((state:any) => state.employees.employee);
+	const dispatch = useAppDispatch();
 
 	const initFetch = () => {
 		return dispatch(findEmployeeById(empId));
