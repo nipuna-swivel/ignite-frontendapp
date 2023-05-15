@@ -1,15 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import EmployeeForm from "../organisms/employeeForm";
-import AlertService from "../../services/alertService";
 import { useDispatch } from "react-redux";
 import { createEmployee } from "@/slices/employeeSlice";
 
 function AddEmployee() {
 	const router = useRouter();
-
 	const dispatch = useDispatch();
-
 	const saveEmployee = (data: {
 		fname: string;
 		lname: string;
@@ -17,24 +14,18 @@ function AddEmployee() {
 		contactNum: string;
 		gender: string;
 	}) => {
-		try {
-			dispatch(
-				createEmployee({
-					fname: data.fname,
-					lname: data.lname,
-					email: data.email,
-					contactNum: data.contactNum,
-					gender: data.gender,
-					photoUrl: "https://randomuser.me/api/portraits/men/30.jpg",
-				})
-			);
-			AlertService.success("Succesfully created !!", "success");
-			router.reload();
-			router.push("/");
-		} catch (error) {
-			console.log("error creating employee :", error);
-			AlertService.error("Success!!", "error");
-		}
+		dispatch(
+			createEmployee({
+				fname: data.fname,
+				lname: data.lname,
+				email: data.email,
+				contactNum: data.contactNum,
+				gender: data.gender,
+				photoUrl: "https://randomuser.me/api/portraits/men/30.jpg",
+			})
+		);
+		router.reload();
+		router.push("/");
 	};
 
 	return (

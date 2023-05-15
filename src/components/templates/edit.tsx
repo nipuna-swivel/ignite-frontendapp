@@ -6,13 +6,10 @@ import { findEmployeeById } from "../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";
 
 const EditEmployee = () => {
-	
 	const { query } = useRouter();
-	console.log("id :", query.id);
 	let empId = query.id;
-	console.log("emp by id :", empId);
 
-	const employee = useSelector((state) => state.employees.employee);
+	const employee = useSelector((state:any) => state.employees.employee);
 	const dispatch = useDispatch();
 
 	const initFetch = () => {
@@ -24,15 +21,10 @@ const EditEmployee = () => {
 		initFetch();
 	}, [empId]);
 
-	console.log("redux store value :", employee);
+	
 
 	const updateEmploye = (data: any) => {
-		try {
-			dispatch(updateEmployee({ empId, data }));
-			
-		} catch (error) {
-			console.log("error creating employee :", error);
-		}
+		dispatch(updateEmployee({ empId, data }));
 	};
 
 	return (

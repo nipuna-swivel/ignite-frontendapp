@@ -13,6 +13,7 @@ import EditIconButton from "../atoms/EditIconButton";
 import DeleteIconButton from "../atoms/DeleteIconButton";
 import Link from "next/link";
 
+
 function GridX({employeeData, handleDelete}) {
 	console.log("Grid passed data: ", employeeData);
 	return (
@@ -20,7 +21,7 @@ function GridX({employeeData, handleDelete}) {
 			
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={{ lg: 6 }} columns={{ lg: 12 }}>
-						{employeeData?.employees.map((emp:string) => (
+						{employeeData?.employees.map((emp:any) => (
 							<Grid item lg={4} key={emp?._id}>
 								<Card sx={{ maxWidth: 345 }}>
 									<CardMedia
