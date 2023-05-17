@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback ,FC} from "react";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { IconButton } from "@mui/material";
 import TableView from "../organisms/employeeListView";
@@ -8,8 +8,9 @@ import Link from "next/link";
 import TableButton from "../atoms/TableButton";
 import GridButton from "../atoms/GridButton";
 import Button from "../atoms/button";
+import { IEmployeeState ,IEmployee} from "@/services/interfaces";
 
-function ListView() {
+const ListView :FC<IEmployeeState>=()=> {
 	const [toggle, setToggle] = useState(true); //this is used for maintaing the icon button.(Table and GridView).
 	const handleClick = () => {
 		setToggle(!toggle);

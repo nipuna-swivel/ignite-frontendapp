@@ -1,11 +1,11 @@
-import React from "react";
+import React,{FC} from "react";
 import { useRouter } from "next/router";
 import GridX from "../molecules/grid";
 import { deleteEmployee } from "@/slices/employeeSlice";
 import { useAppDispatch} from "@/components/hooks";
-import { IEmployee } from "@/services/interfaces";
+import { IEmployee, IEmployeeState,IEditEmployeeFormProps } from "@/services/interfaces";
 
-function GridView(props: { employees: IEmployee }) {
+const GridView:FC<IEmployeeState>=(props: { employees: IEditEmployeeFormProps })=> {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
 

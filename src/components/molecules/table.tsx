@@ -1,4 +1,4 @@
-import React from "react";
+import React,{FC} from "react";
 import {
 	IconButton,
 	Paper,
@@ -12,7 +12,8 @@ import {
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-const TableList = ({employeeData, handleDelete}) => {
+import { IEmployeeState,IEmployee } from "@/services/interfaces";
+const TableList: FC<IEmployeeState>= ({employeeData, handleDelete}) => {
 	console.log("employeData:", employeeData);
 
 	return (
@@ -31,8 +32,8 @@ const TableList = ({employeeData, handleDelete}) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{employeeData?.employees.map((emp: any) => (
-							<TableRow hover key={emp.id}>
+						{employeeData?.employees.map((emp: IEmployee) => (
+							<TableRow hover key={emp._id}>
 								<TableCell>
 									<img src={emp?.photoUrl} alt={"employee image"} />
 								</TableCell>

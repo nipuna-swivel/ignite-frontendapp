@@ -1,4 +1,4 @@
-import React from "react";
+import React,{FC} from "react";
 import { useRouter } from "next/router";
 import TableForm from "../molecules/table";
 import { deleteEmployee } from "@/slices/employeeSlice";
@@ -6,7 +6,7 @@ import { IEmployee ,IEmployeeState} from "@/services/interfaces";
 import { useAppDispatch} from "@/components/hooks";
 
 //start of TableView Component.
-function TableView(employees: IEmployeeState ) {
+const TableView:FC<IEmployeeState>=(employees: IEmployeeState )=> {
 
 	console.log("EmployeeListComponent data", employees.employees);
 
