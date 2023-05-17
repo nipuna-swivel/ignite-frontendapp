@@ -2,16 +2,16 @@ import React from "react";
 import { useRouter } from "next/router";
 import TableForm from "../molecules/table";
 import { deleteEmployee } from "@/slices/employeeSlice";
-import { useDispatch } from "react-redux";
-import { IEmployee } from "@/services/interfaces";
+import { IEmployee ,IEmployeeState} from "@/services/interfaces";
+import { useAppDispatch} from "@/components/hooks";
 
 //start of TableView Component.
-function TableView(employees: IEmployee ) {
+function TableView(employees: IEmployeeState ) {
 
 	console.log("EmployeeListComponent data", employees.employees);
 
 	const router = useRouter();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const handleDelete = (id: string) => {
 		try {

@@ -2,12 +2,12 @@ import React from "react";
 import { useRouter } from "next/router";
 import GridX from "../molecules/grid";
 import { deleteEmployee } from "@/slices/employeeSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch} from "@/components/hooks";
 import { IEmployee } from "@/services/interfaces";
 
 function GridView(props: { employees: IEmployee }) {
 	const router = useRouter();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	console.log("grid component passed data", props);
 
