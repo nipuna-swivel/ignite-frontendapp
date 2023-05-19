@@ -13,8 +13,14 @@ import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IEmployeeState,IEmployee } from "@/services/interfaces";
-const TableList: FC<IEmployeeState>= ({employeeData, handleDelete}) => {
-	console.log("employeData:", employeeData);
+
+interface Props {
+	employees : IEmployee[]
+	handleDelete : (id : string) => void
+}
+
+const TableList = ({employees, handleDelete} : Props) => {
+	console.log("employeData:", employees);
 
 	return (
 		<div>
@@ -32,7 +38,7 @@ const TableList: FC<IEmployeeState>= ({employeeData, handleDelete}) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{employeeData?.employees.map((emp: IEmployee) => (
+						{employees.map((emp: IEmployee) => (
 							<TableRow hover key={emp._id}>
 								<TableCell>
 									<img src={emp?.photoUrl} alt={"employee image"} />

@@ -1,15 +1,19 @@
-import React, { useEffect,FC } from "react";
+import React, { useEffect, FC } from "react";
 import Link from "next/link";
 import { useFormik } from "formik";
-import employeeSchema from "../../utils/employeeShema";
-import { IEditEmployeeFormProps } from "../../services/interfaces";
-import Button from "../atoms/button";
-//employee form functional component start.
-const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
-	employeedetails,
-	func,
-}) => {
+import employeeSchema from "../../../../utils/employeeShema";
+import {	
+	IEmployee,
+} from "../../../../services/interfaces";
+import {ThemeButton} from "../../../atoms";
 
+interface Props {
+	employeedetails: IEmployee;
+	func: (values: IEmployee) => void;
+}
+
+//employee form functional component start.
+export const EditEmployeeForm = ({ employeedetails, func }: Props) => {
 	console.log("passed data", employeedetails);
 
 	// selection options for gender selection.
@@ -27,11 +31,11 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 			contactNum: "",
 			gender: "",
 			photoUrl: "https://randomuser.me/api/portraits/men/30.jpg",
-		},
+		} as IEmployee,
 
 		validationSchema: employeeSchema,
 
-		onSubmit: (values) => {
+		onSubmit: (values: IEmployee) => {
 			func(values);
 			console.log("submitted", values);
 		},
@@ -49,7 +53,7 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 		<>
 			<div className="d-flex justify-content-end">
 				<Link href="/employees/list">
-					<Button
+					<ThemeButton
 						class={"mt-2 mb-2 btn-lg"}
 						title={"List View"}
 						variant={"contained"}
@@ -117,7 +121,7 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 								id="email"
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.email}
+								value={formik.values.email || ""}
 								name="email"
 								required
 							/>
@@ -185,4 +189,4 @@ const EditEmployeeForm: FC<IEditEmployeeFormProps> = ({
 	); //end of return statement.
 }; //end of function.
 
-export default EditEmployeeForm;
+

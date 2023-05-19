@@ -1,6 +1,6 @@
 import React from "react";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
-function GridButton() {
+export const GridButton=()=> {
 	return (
 		<>
 			<ViewModuleIcon />
@@ -8,4 +8,4 @@ function GridButton() {
 	);
 }
 
-export default GridButton;
+

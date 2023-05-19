@@ -1,14 +1,18 @@
-import React,{FC} from "react";
+import React from "react";
 import { useRouter } from "next/router";
-import TableForm from "../molecules/table";
 import { deleteEmployee } from "@/slices/employeeSlice";
-import { IEmployee ,IEmployeeState} from "@/services/interfaces";
+import { IEmployee} from "@/services/interfaces";
 import { useAppDispatch} from "@/components/hooks";
+import TableList from "@/components/molecules/table";
+
+interface Props {
+	employees : IEmployee[];
+}
 
 //start of TableView Component.
-const TableView:FC<IEmployeeState>=(employees: IEmployeeState )=> {
+export const EmployeeListView = ({employees}: Props )=> {
 
-	console.log("EmployeeListComponent data", employees.employees);
+	console.log("EmployeeListComponent data", employees);
 
 	const router = useRouter();
 	const dispatch = useAppDispatch();
@@ -25,12 +29,12 @@ const TableView:FC<IEmployeeState>=(employees: IEmployeeState )=> {
 	return (
 		<div className="mt-2 bg-white">
 			{" "}
-			<TableForm
-				employeeData={employees.employees}
+			<TableList
+				employees={employees || []}
 				handleDelete={handleDelete}
 			/>
 		</div>
 	); //end of return statement.
 } //end of the tableViewComponent.
 
-export default TableView;
+

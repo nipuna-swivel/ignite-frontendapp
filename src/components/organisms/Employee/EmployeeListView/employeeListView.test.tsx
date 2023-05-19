@@ -1,5 +1,5 @@
 import { screen, render, fireEvent } from "@testing-library/react";
-import TableView from "./employeeListView";
+import {EmployeeListView} from "./index";
 import "@testing-library/jest-dom";
 import { useRouter } from "next/router";
 import mockRouter from "next-router-mock";
@@ -37,6 +37,6 @@ const employees = {
 
 describe("EmployeeListView", () => {
 	it("List view should render", () => {
-		render(<TableView employeeData={employees} handleDelete={() => {}} />);
+		render(<EmployeeListView employees={employees} handleDelete={() => {}} />);
 	});
 });

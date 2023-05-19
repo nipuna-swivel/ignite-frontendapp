@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen,fireEvent } from "@testing-library/react";
-import EmployeeForm from "../organisms/employeeForm";
+import EmployeeForm from "../organisms/old/employeeForm";
 import "@testing-library/jest-dom";
 import { useRouter } from "next/router";
 import mockRouter from "next-router-mock";

@@ -9,18 +9,24 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import EditIconButton from "../atoms/EditIconButton";
-import DeleteIconButton from "../atoms/DeleteIconButton";
+import {EditIconButton} from "../atoms";
+import {DeleteIconButton} from "../atoms";
 import Link from "next/link";
 import { IEmployee, IEmployeeState } from "@/services/interfaces";
 
-const GridX: FC<IEmployeeState> = ({ employeeData, handleDelete }) => {
-	console.log("Grid passed data: ", employeeData);
+
+interface Props {
+	employees : IEmployee[]
+	handleDelete : (id : string) => void
+}
+EditIconButton
+const GridX = ({employees, handleDelete} : Props) => {
+	console.log("Grid passed data: ", employees);
 	return (
 		<div>
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container spacing={{ lg: 6 }} columns={{ lg: 12 }}>
-					{employeeData?.employees.map((emp: IEmployee) => (
+					{employees.map((emp: IEmployee) => (
 						<Grid item lg={4} key={emp?._id}>
 							<Card sx={{ maxWidth: 345 }}>
 								<CardMedia

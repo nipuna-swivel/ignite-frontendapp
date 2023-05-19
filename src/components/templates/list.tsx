@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useCallback ,FC} from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { IconButton } from "@mui/material";
-import TableView from "../organisms/employeeListView";
-import GridView from "../organisms/employeeGridView";
 import { retrieveEmployee } from "../../slices/employeeSlice";
 import Link from "next/link";
-import TableButton from "../atoms/TableButton";
-import GridButton from "../atoms/GridButton";
-import Button from "../atoms/button";
-import { IEmployeeState ,IEmployee} from "@/services/interfaces";
+import {TableButton} from "../atoms";
+import {GridButton} from "../atoms";
+import {ThemeButton} from "../atoms";
+import { EmployeeGridView } from "../organisms/Employee";
+import {EmployeeListView } from "../organisms/Employee";
 
-const ListView :FC<IEmployeeState>=()=> {
+const ListView =()=> {
 	const [toggle, setToggle] = useState(true); //this is used for maintaing the icon button.(Table and GridView).
 	const handleClick = () => {
 		setToggle(!toggle);
@@ -33,7 +32,7 @@ const ListView :FC<IEmployeeState>=()=> {
 				<div className="float-xl-end mt-5 mb-2 bg-white">
 					{" "}
 					<Link href="/employees/addEmployee">
-						<Button title={"Add"} variant={"contained"} />
+						<ThemeButton title={"Add"} variant={"contained"} />
 					</Link>
 					<IconButton onClick={handleClick}>
 						{/* this is for changing Table view and grid view.*/}
@@ -42,9 +41,9 @@ const ListView :FC<IEmployeeState>=()=> {
 				</div>
 				<div>
 					{toggle !== true ? (
-						<TableView employees={employees} />
+						<EmployeeListView employees={employees?.employees || []} />
 					) : (
-						<GridView employees={employees} />
+						<EmployeeGridView employees={employees?.employees || []} />
 					)}
 				</div>
 			</div>

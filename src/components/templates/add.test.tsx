@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from "@testing-library/react";
-import EmployeeForm from "../organisms/employeeForm";
+import EmployeeForm from "../organisms/old/employeeForm";
 import '@testing-library/jest-dom/extend-expect';
 
 const employees = {

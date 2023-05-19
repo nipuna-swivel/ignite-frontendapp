@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-const Buttonx = (props: any) => {
+export const ThemeButton = (props: any) => {
 	return (
 		<>
 			<Button className={props.class} variant={props.variant}>
@@ -10,4 +10,3 @@ const Buttonx = (props: any) => {
 		</>
 	);
 };
-export default Buttonx;

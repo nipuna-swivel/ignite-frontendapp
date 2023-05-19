@@ -2,7 +2,7 @@ import React from "react";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const DeleteIconButton = () => {
+export const DeleteIconButton = () => {
 	return (
 		<>
 			<DeleteIcon color="primary" />
@@ -10,4 +10,4 @@ const DeleteIconButton = () => {
 	);
 };
 
-export default DeleteIconButton;
+

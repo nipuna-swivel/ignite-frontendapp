@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import EditEmployeeForm from "../organisms/employeeForm";
+import {EditEmployeeForm} from "../organisms/Employee";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { findEmployeeById } from "../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";

@@ -2,7 +2,7 @@ import React from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
 
-const EditIconButton=()=> {
+export const EditIconButton=()=> {
 	return (
 		<>
 			<IconButton>
@@ -12,4 +12,3 @@ const EditIconButton=()=> {
 	);
 }
 
-export default EditIconButton;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import EmployeeForm from "../organisms/employeeForm";
+import {EditEmployeeForm} from "../organisms/Employee";
 import { useAppDispatch} from "@/components/hooks";
 import { createEmployee } from "@/slices/employeeSlice";
 
@@ -30,7 +30,7 @@ function AddEmployee() {
 
 	return (
 		<div>
-			<EmployeeForm func={saveEmployee} employeedetails={null} />
+			<EditEmployeeForm func={ saveEmployee } employeedetails={ undefined }   />
 		</div>
 	);
 }

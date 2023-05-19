@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import TableView from "../organisms/employeeListView";
-import GridView from "../organisms/employeeGridView";
+import TableView from "../organisms/old/employeeListView";
+import GridView from "../organisms/old/employeeGridView";
 import "@testing-library/jest-dom";
 
 describe("ListView main component", () => {

@@ -1,15 +1,19 @@
-import React,{FC} from "react";
+import React from "react";
 import { useRouter } from "next/router";
-import GridX from "../molecules/grid";
+import GridX from "../../../molecules/grid";
 import { deleteEmployee } from "@/slices/employeeSlice";
 import { useAppDispatch} from "@/components/hooks";
-import { IEmployee, IEmployeeState,IEditEmployeeFormProps } from "@/services/interfaces";
+import { IEmployee } from "@/services/interfaces";
 
-const GridView:FC<IEmployeeState>=(props: { employees: IEditEmployeeFormProps })=> {
+interface Props {
+	employees : IEmployee[];
+}
+
+export const EmployeeGridView = ({ employees }:Props)=> {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
 
-	console.log("grid component passed data", props);
+	console.log("grid component passed data", employees);
 
 	const handleDelete = (id: string) => {
 		try {
@@ -23,9 +27,10 @@ const GridView:FC<IEmployeeState>=(props: { employees: IEditEmployeeFormProps })
 
 	return (
 		<div className="bg-white">
-			<GridX employeeData={props.employees} handleDelete={handleDelete} />
+			 <GridX employees={employees || []}
+				handleDelete={handleDelete}/> 
 		</div>
 	);
-} //end of gridview
+}
 
-export default GridView;
+// export default EmployeeGridView;

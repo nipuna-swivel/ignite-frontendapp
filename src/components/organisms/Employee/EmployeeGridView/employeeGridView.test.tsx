@@ -1,5 +1,5 @@
 import {render,screen,fireEvent} from "@testing-library/react";
-import GridView from "./employeeGridView";
+import {EmployeeGridView} from "./index";
 import "@testing-library/jest-dom";
 import { useRouter } from "next/router";
 import mockRouter from "next-router-mock";
@@ -23,6 +23,6 @@ describe("next-router-mock", () => {
 
 describe("GridView", () => {
     it(" grid view should render correctly", () => {
-        render(<GridView />);
+        render(<EmployeeGridView employees={ [] } />);
     })
 })

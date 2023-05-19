@@ -1,6 +1,6 @@
 import React from "react";
 import ViewListIcon from "@mui/icons-material/ViewList";
-function TableButton() {
+export const TableButton=() =>{
 	return (
 		<>
 			<ViewListIcon />
@@ -8,4 +8,4 @@ function TableButton() {
 	);
 }
 
-export default TableButton;
+

@@ -1,5 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import EditEmployeeForm from "./employeeForm";
+import {EditEmployeeForm} from "./index";
 import "@testing-library/jest-dom";
 
 
