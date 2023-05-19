@@ -9,7 +9,11 @@ const initialState: IEmployeeState = {
 	employee: [],
 	loading: false,
 	error: null,
-	//message: '',
+	employeeData: [],
+	handleDelete: function ( _id: string ): void
+	{
+		throw new Error( "Function not implemented." );
+	}
 };
 
 export const createEmployee:any = createAsyncThunk(
