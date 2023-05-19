@@ -30,7 +30,7 @@ function AddEmployee() {
 
 	return (
 		<div>
-			<EditEmployeeForm func={ saveEmployee } employeedetails={ undefined }   />
+			<EditEmployeeForm func={ saveEmployee }   />
 		</div>
 	);
 }
