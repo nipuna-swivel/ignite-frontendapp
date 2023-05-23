@@ -19,7 +19,7 @@ interface Props {
 	handleDelete : (id : string) => void
 }
 
-const TableList = ({employees, handleDelete} : Props) => {
+export const TableList = ({employees, handleDelete} : Props) => {
 	console.log("employeData:", employees);
 
 	return (
@@ -69,4 +69,4 @@ const TableList = ({employees, handleDelete} : Props) => {
 		</div>
 	);
 };
-export default TableList;
+

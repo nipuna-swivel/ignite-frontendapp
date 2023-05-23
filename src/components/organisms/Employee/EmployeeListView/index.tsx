@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { deleteEmployee } from "@/slices/employeeSlice";
 import { IEmployee, IEmployeeState } from "@/services/interfaces";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
-import TableList from "@/components/molecules/table";
+import {TableList} from "@/components/molecules/table";
 import { toast } from "react-hot-toast";
 import Loading from "@/components/atoms/Loading";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import GridX from "../../../molecules/grid";
+import {GridX} from "@/components/molecules/grid";
 import { deleteEmployee } from "@/slices/employeeSlice";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { IEmployee, IEmployeeState } from "@/services/interfaces";

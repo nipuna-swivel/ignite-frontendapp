@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import GridX from "./grid";
+import GridX from "@/components/molecules/grid";
 import '@testing-library/jest-dom'
 
 

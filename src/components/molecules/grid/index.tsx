@@ -9,8 +9,8 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import {EditIconButton} from "../atoms";
-import {DeleteIconButton} from "../atoms";
+import {EditIconButton} from "../../atoms";
+import {DeleteIconButton} from "../../atoms";
 import Link from "next/link";
 import { IEmployee, IEmployeeState } from "@/services/interfaces";
 
@@ -20,7 +20,7 @@ interface Props {
 	handleDelete : (id : string) => void
 }
 EditIconButton
-const GridX = ({employees, handleDelete} : Props) => {
+export const GridX = ({employees, handleDelete} : Props) => {
 	console.log("Grid passed data: ", employees);
 	return (
 		<div>
@@ -65,4 +65,4 @@ const GridX = ({employees, handleDelete} : Props) => {
 		</div>
 	);
 };
-export default GridX;
+
