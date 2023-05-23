@@ -1,5 +1,5 @@
 import * as React from "react";
-import HeaderBar from "./HeaderBar";
+import HeaderBar from "../headerBar";
 
 const AppLayout=(props:any)=> {
 	return (

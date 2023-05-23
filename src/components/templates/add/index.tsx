@@ -1,10 +1,10 @@
 import React,{useEffect} from "react";
 import { useRouter } from "next/router";
-import {EditEmployeeForm} from "../organisms/Employee";
+import {EditEmployeeForm} from "../../organisms/Employee";
 import { useAppDispatch,useAppSelector} from "@/components/hooks";
 import { createEmployee } from "@/slices/employeeSlice";
 import { toast } from "react-hot-toast";
-import Loading from "../atoms/Loading";
+import Loading from "../../atoms/Loading";
 
 function AddEmployee() {
 	const router = useRouter();

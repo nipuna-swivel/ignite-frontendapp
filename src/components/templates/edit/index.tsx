@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import {EditEmployeeForm} from "../organisms/Employee";
+import {EditEmployeeForm} from "../../organisms/Employee";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
-import { findEmployeeById } from "../../slices/employeeSlice";
+import { findEmployeeById } from "../../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";
-import Loading from "../atoms/Loading";
+import Loading from "../../atoms/Loading";
 import { toast } from "react-hot-toast";
 
 const EditEmployee = () => {

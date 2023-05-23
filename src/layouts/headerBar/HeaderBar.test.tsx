@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from "@testing-library/react";
-import HeaderBar from "./HeaderBar";
+import HeaderBar from ".";
 import "@testing-library/jest-dom";
 
 describe("HeaderBar", () => {
