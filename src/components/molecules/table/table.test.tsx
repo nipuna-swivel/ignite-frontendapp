@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TableList from "@/components/molecules/table";
+import {TableList} from "@/components/molecules/table";
 import "@testing-library/jest-dom";
 
 const employees = {

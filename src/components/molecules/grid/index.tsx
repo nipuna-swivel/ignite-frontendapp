@@ -12,7 +12,7 @@ import {
 import {EditIconButton} from "../../atoms";
 import {DeleteIconButton} from "../../atoms";
 import Link from "next/link";
-import { IEmployee, IEmployeeState } from "@/services/interfaces";
+import { IEmployee} from "@/services/interfaces";
 
 
 interface Props {
