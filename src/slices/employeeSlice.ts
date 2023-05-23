@@ -10,13 +10,13 @@ const initialState: IEmployeeState = {
 	loading: false,
 	error: null,
 	employeeData: [],
-	handleDelete: function ( _id: string ): void
-	{
-		throw new Error( "Function not implemented." );
-	}
+	isDeleted: false,
+	handleDelete: function (_id: string): void {
+		throw new Error("Function not implemented.");
+	},
 };
 
-export const createEmployee:any = createAsyncThunk(
+export const createEmployee: any = createAsyncThunk(
 	"employees/create",
 	async (
 		{ fname, lname, email, contactNum, gender, photoUrl }: IEmployee,
@@ -38,7 +38,7 @@ export const createEmployee:any = createAsyncThunk(
 	}
 );
 
-export const retrieveEmployee:any = createAsyncThunk(
+export const retrieveEmployee: any = createAsyncThunk(
 	"employees/getAll",
 	async () => {
 		try {
@@ -51,7 +51,7 @@ export const retrieveEmployee:any = createAsyncThunk(
 	}
 );
 
-export const updateEmployee:any = createAsyncThunk(
+export const updateEmployee: any = createAsyncThunk(
 	"employees/update",
 	async (params: { empId: string; data: any }, { rejectWithValue }) => {
 		try {
@@ -64,20 +64,20 @@ export const updateEmployee:any = createAsyncThunk(
 	}
 );
 
-export const deleteEmployee:any = createAsyncThunk(
+export const deleteEmployee: any = createAsyncThunk(
 	"employees/delete",
 	async (id: string, { rejectWithValue }) => {
 		try {
 			await EmployeeDataService.remove(id);
 			AlertService.success("Employee deleted Success!!", "success");
-			return { id };
+			return id ;
 		} catch (error: any) {
 			return rejectWithValue(error.response.data.message);
 		}
 	}
 );
 
-export const findEmployeeById:any = createAsyncThunk(
+export const findEmployeeById: any = createAsyncThunk(
 	"employees/getbyid",
 	async (id: string, { rejectWithValue }) => {
 		try {
@@ -101,6 +101,7 @@ const employeeSlice = createSlice({
 		builder.addCase(retrieveEmployee.fulfilled, (state, action) => {
 			state.loading = false;
 			state.employees = action.payload;
+			console.log("retrive slice", state.employees)
 		});
 		builder.addCase(retrieveEmployee.rejected, (state) => {
 			state.loading = false;
@@ -133,9 +134,18 @@ const employeeSlice = createSlice({
 		);
 
 		//delete a employee
-		builder.addCase(deleteEmployee.fulfilled, (state) => {
+		builder.addCase(deleteEmployee.pending, (state) => {
+			state.loading = true;
+			console.log("Delete pending",state)
+		});
+		builder.addCase(deleteEmployee.fulfilled, (state, action) => {
+			//console.log("ABC123", state.employee)
+			console.log("ABC456", state)
 			state.loading = false;
 			state.error = { success: true, message: "Successfully deleted" };
+			state.employees = state.employees.filter(
+				(employee) => employee._id !== action.payload
+			);
 		});
 		builder.addCase(
 			deleteEmployee.rejected,

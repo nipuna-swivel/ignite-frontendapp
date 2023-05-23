@@ -1,12 +1,16 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useRouter } from "next/router";
 import {EditEmployeeForm} from "../organisms/Employee";
-import { useAppDispatch} from "@/components/hooks";
+import { useAppDispatch,useAppSelector} from "@/components/hooks";
 import { createEmployee } from "@/slices/employeeSlice";
+import { toast } from "react-hot-toast";
+import Loading from "../atoms/Loading";
 
 function AddEmployee() {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
+	const loading = useAppSelector((state) => state.employees.loading);
+	const error =useAppSelector((state) => state.employees.error);
 	const saveEmployee = (data: {
 		fname: string;
 		lname: string;
@@ -24,9 +28,20 @@ function AddEmployee() {
 				photoUrl: "https://randomuser.me/api/portraits/men/30.jpg",
 			})
 		);
-		router.reload();
+		
 		router.push("/");
 	};
+
+	useEffect(() => {
+		if (error) {
+			toast.error(error);
+		}
+		
+	}, [error]);
+
+	if (loading) {
+		return <Loading/>;
+	}
 
 	return (
 		<div>

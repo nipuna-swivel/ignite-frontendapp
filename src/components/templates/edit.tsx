@@ -4,6 +4,8 @@ import {EditEmployeeForm} from "../organisms/Employee";
 import { useAppDispatch, useAppSelector } from "@/components/hooks";
 import { findEmployeeById } from "../../slices/employeeSlice";
 import { updateEmployee } from "@/slices/employeeSlice";
+import Loading from "../atoms/Loading";
+import { toast } from "react-hot-toast";
 
 const EditEmployee = () => {
 	const { query } = useRouter();
@@ -11,6 +13,8 @@ const EditEmployee = () => {
 
 	const employee = useAppSelector((state:any) => state.employees.employee);
 	const dispatch = useAppDispatch();
+	const loading = useAppSelector((state) => state.employees.loading);
+	const error =useAppSelector((state) => state.employees.error);
 
 	const initFetch = () => {
 		return dispatch(findEmployeeById(empId));
@@ -26,6 +30,17 @@ const EditEmployee = () => {
 	const updateEmploye = (data: any) => {
 		dispatch(updateEmployee({ empId, data }));
 	};
+
+	useEffect(() => {
+		if (error) {
+			toast.error(error);
+		}
+		
+	}, [error]);
+
+	if (loading) {
+		return <Loading/>;
+	}
 
 	return (
 		<div>
