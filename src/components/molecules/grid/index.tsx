@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import {
 	Box,
 	Card,
@@ -9,18 +9,16 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import {EditIconButton} from "../../atoms";
-import {DeleteIconButton} from "../../atoms";
+import { EditIconButton, DeleteIconButton } from "../../atoms";
 import Link from "next/link";
-import { IEmployee} from "@/services/interfaces";
-
+import { IEmployee } from "@/services/interfaces";
 
 interface Props {
-	employees : IEmployee[]
-	handleDelete : (id : string) => void
+	employees: IEmployee[];
+	handleDelete: (id: string) => void;
 }
-EditIconButton
-export const GridX = ({employees, handleDelete} : Props) => {
+
+export const GridX = ({ employees, handleDelete }: Props) => {
 	console.log("Grid passed data: ", employees);
 	return (
 		<div>
@@ -65,4 +63,3 @@ export const GridX = ({employees, handleDelete} : Props) => {
 		</div>
 	);
 };
-

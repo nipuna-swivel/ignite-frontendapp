@@ -1,4 +1,4 @@
-import React,{FC} from "react";
+import React from "react";
 import {
 	IconButton,
 	Paper,
@@ -12,14 +12,14 @@ import {
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { IEmployeeState,IEmployee } from "@/services/interfaces";
+import { IEmployee } from "@/services/interfaces";
 
 interface Props {
-	employees : IEmployee[]
-	handleDelete : (id : string) => void
+	employees: IEmployee[];
+	handleDelete: (id: string) => void;
 }
 
-export const TableList = ({employees, handleDelete} : Props) => {
+export const TableList = ({ employees, handleDelete }: Props) => {
 	console.log("employeData:", employees);
 
 	return (
@@ -69,4 +69,3 @@ export const TableList = ({employees, handleDelete} : Props) => {
 		</div>
 	);
 };
-
