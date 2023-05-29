@@ -19,6 +19,9 @@ export interface IEmployeeState {
 	loading: boolean;
 	error: IError | null;
 	isDeleted: boolean;
+	isAdded: boolean;
+	isUpdated: boolean;
+	successMessage: string;
 	employee: IEmployee[] | [];
 	employeeData: IEmployee[]|[];
 	handleDelete: (_id: string) => void;

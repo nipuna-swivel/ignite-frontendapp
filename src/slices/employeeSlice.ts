@@ -9,6 +9,9 @@ const initialState: IEmployeeState = {
 	employee: [],
 	loading: false,
 	error: null,
+	isAdded: false,
+	isUpdated: false,
+	successMessage: "",
 	employeeData: [],
 	isDeleted: false,
 	handleDelete: function (_id: string): void {
@@ -70,7 +73,7 @@ export const deleteEmployee: any = createAsyncThunk(
 		try {
 			await EmployeeDataService.remove(id);
 			AlertService.success("Employee deleted Success!!", "success");
-			return id ;
+			return id;
 		} catch (error: any) {
 			return rejectWithValue(error.response.data.message);
 		}
@@ -92,7 +95,14 @@ export const findEmployeeById: any = createAsyncThunk(
 const employeeSlice = createSlice({
 	name: "employee",
 	initialState,
-	reducers: {},
+	reducers: {
+		reSetAdd: (state) => {
+			state.isAdded = false;
+		},
+		reSetUpdate: (state) => {
+			state.isUpdated = false;
+		},
+	},
 	extraReducers: (builder) => {
 		//retrive all employees
 		builder.addCase(retrieveEmployee.pending, (state) => {
@@ -101,7 +111,7 @@ const employeeSlice = createSlice({
 		builder.addCase(retrieveEmployee.fulfilled, (state, action) => {
 			state.loading = false;
 			state.employees = action.payload;
-			console.log("retrive slice", state.employees)
+			console.log("retrive slice", state.employees);
 		});
 		builder.addCase(retrieveEmployee.rejected, (state) => {
 			state.loading = false;
@@ -111,38 +121,40 @@ const employeeSlice = createSlice({
 		//create a new employee
 		builder.addCase(createEmployee.fulfilled, (state, action) => {
 			state.loading = false;
-			state.error = { success: true, message: "Successfully added" };
+			state.isAdded = true;
+			state.successMessage = "Successfully added the employee";
+			state.error = null;
 		});
 		builder.addCase(
 			createEmployee.rejected,
 			(state, action: PayloadAction<any>) => {
 				state.loading = false;
-				state.error = { success: false, message: action.payload };
+				state.error = action.payload;
 			}
 		);
 		//update employee
 		builder.addCase(updateEmployee.fulfilled, (state) => {
 			state.loading = false;
-			state.error = { success: true, message: "Successfully updated" };
+			state.isUpdated = true;
+			state.successMessage = "Successfully updated employee";
+			state.error = null;
 		});
 		builder.addCase(
 			updateEmployee.rejected,
 			(state, action: PayloadAction<any>) => {
 				state.loading = false;
-				state.error = { success: false, message: action.payload };
+				state.error = action.payload;
 			}
 		);
 
 		//delete a employee
 		builder.addCase(deleteEmployee.pending, (state) => {
 			state.loading = true;
-			console.log("Delete pending",state)
+			console.log("Delete pending", state);
 		});
 		builder.addCase(deleteEmployee.fulfilled, (state, action) => {
-			//console.log("ABC123", state.employee)
-			console.log("ABC456", state)
 			state.loading = false;
-			state.error = { success: true, message: "Successfully deleted" };
+			state.successMessage = "Successfully deleted employee";
 			state.employees = state.employees.filter(
 				(employee) => employee._id !== action.payload
 			);
@@ -151,7 +163,7 @@ const employeeSlice = createSlice({
 			deleteEmployee.rejected,
 			(state, action: PayloadAction<any>) => {
 				state.loading = false;
-				state.error = { success: false, message: action.payload };
+				state.error = action.payload;
 			}
 		);
 
@@ -172,3 +184,4 @@ const employeeSlice = createSlice({
 
 const { reducer } = employeeSlice;
 export default reducer;
+export const { reSetAdd, reSetUpdate } = employeeSlice.actions;
